@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Pi-A3-Game-Console)(type Legacy)(uri ${KIPRJMOD}/Pi-A3-Game-Console.lib)(options "")(descr ""))
+  (lib (name COM-09032)(type Legacy)(uri ${KIPRJMOD}/COM-09032.lib)(options "")(descr ""))
+)
