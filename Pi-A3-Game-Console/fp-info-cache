@@ -1,4 +1,4 @@
-16946795929775098
+16946797738693225
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -65055,14 +65055,14 @@ BatteryShield
 
 
 0
-0
-0
+3
+3
 Pi-A3-Game-Console
 Nintendo-Switch-TE_0-1734839-5_1x05-1MP_P0.5mm_Horizontal
 TE FPC connector, 05 top-side contacts, 0.5mm pitch, SMT, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F1734839%7FC%7Fpdf%7FEnglish%7FENG_CD_1734839_C_C_1734839.pdf%7F4-1734839-0
 te fpc 1734839
 0
-7
+9
 6
 Pi-A3-Game-Console
 Raspberry_Pi_Model_3_A+

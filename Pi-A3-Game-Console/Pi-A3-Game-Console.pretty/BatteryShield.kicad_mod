@@ -1,4 +1,4 @@
-(module BatteryShield (layer F.Cu) (tedit 5F665643)
+(module BatteryShield (layer F.Cu) (tedit 5F721EE1)
   (fp_text reference REF** (at 46 -20.5) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
@@ -34,6 +34,9 @@
   (fp_line (start 61.568023 6.600001) (end 51.568027 6.600001) (layer F.SilkS) (width 0.2))
   (fp_line (start 45.068024 16.700001) (end 52.568023 16.700001) (layer F.SilkS) (width 0.2))
   (fp_line (start -33.431974 23.5) (end 54.548026 23.5) (layer F.SilkS) (width 0.2))
+  (pad 1 thru_hole circle (at -36.9319 -17.63) (size 4.5 4.5) (drill 3) (layers *.Cu *.Mask))
+  (pad 2 thru_hole circle (at -36.9319 16.5) (size 4.5 4.5) (drill 3) (layers *.Cu *.Mask))
+  (pad 3 thru_hole circle (at 58.04802 -17.63) (size 4.5 4.5) (drill 3) (layers *.Cu *.Mask))
   (model "${KIPRJMOD}/Battery Shield.step"
     (offset (xyz -39.5 -23.5 3))
     (scale (xyz 1 1 1))
