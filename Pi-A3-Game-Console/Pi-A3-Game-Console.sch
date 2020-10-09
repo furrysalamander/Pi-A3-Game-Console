@@ -186,9 +186,9 @@ F 3 "" H 6900 8350 50  0001 C CNN
 $EndComp
 Text Label 4250 3800 2    50   ~ 0
 LCD_CS
-Text Label 1750 4100 0    50   ~ 0
+Text Label 1750 4300 0    50   ~ 0
 LCD_RESET
-Text Label 1750 4000 0    50   ~ 0
+Text Label 1750 4100 0    50   ~ 0
 LCD_DC
 Text Label 4250 4000 2    50   ~ 0
 LCD_MOSI
@@ -197,9 +197,9 @@ LCD_SCK
 Wire Wire Line
 	4250 3800 3800 3800
 Wire Wire Line
-	1750 4100 2200 4100
+	1750 4300 2200 4300
 Wire Wire Line
-	1750 4000 2200 4000
+	1750 4100 2200 4100
 Wire Wire Line
 	4250 4000 3800 4000
 Wire Wire Line
@@ -1184,7 +1184,7 @@ L Device:C_Small C6
 U 1 1 5F752E0E
 P 4950 2600
 F 0 "C6" V 4721 2600 50  0000 C CNN
-F 1 "C_Small" V 4812 2600 50  0000 C CNN
+F 1 "1uF" V 4812 2600 50  0000 C CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4950 2600 50  0001 C CNN
 F 3 "~" H 4950 2600 50  0001 C CNN
 	1    4950 2600
@@ -1578,7 +1578,7 @@ NoConn ~ 3800 4300
 NoConn ~ 3800 4400
 NoConn ~ 2200 3000
 NoConn ~ 2200 3100
-NoConn ~ 2200 4300
+NoConn ~ 2200 4000
 NoConn ~ 2200 4200
 NoConn ~ 2200 3800
 NoConn ~ 2200 3900
