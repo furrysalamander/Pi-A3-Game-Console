@@ -1,4 +1,4 @@
-//#include <Wire.h>
+#include <Wire.h>
 
 enum pins {
   BTN_X = 0,       // X
@@ -28,51 +28,74 @@ enum pins {
   DPAD_D = 30,     // DOWN
 };
 
-const char BUTTON_COUNT = 16;
-const char AXIS_COUNT = 4;
-const char TX_BUF_LEN = BUTTON_COUNT + AXIS_COUNT * sizeof(int);
+const uint8_t BUTTON_COUNT = 16;
+const uint8_t AXIS_COUNT = 4;
 
-char INPUTS[BUTTON_COUNT] = {
+uint8_t BUTTONS[BUTTON_COUNT] = {
     BTN_A, BTN_B, BTN_X,    BTN_Y,    DPAD_U,    DPAD_D,     DPAD_L,   DPAD_R,
     BTN_L, BTN_R, LJOY_BTN, RJOY_BTN, BTN_START, BTN_SELECT, BTN_HOME, BTN_MOD,
 };
 
-char tx_buffer[BUTTON_COUNT + AXIS_COUNT];
-//uint16_t *analog_ptr = reinterpret_cast<uint16_t *>(tx_buffer + BUTTON_COUNT);
-int analog_tx_buffer[2];
+uint8_t AXIS[AXIS_COUNT] = {
+    LJOY_X,
+    LJOY_Y,
+    RJOY_X,
+    RJOY_Y,
+};
 
-char AXIS[AXIS_COUNT] = {LJOY_X, LJOY_Y, RJOY_X, RJOY_Y,};
+struct tx_buffer_t {
+  uint8_t buttons[BUTTON_COUNT];
+  int16_t axis[AXIS_COUNT];
+};
+
+tx_buffer_t tx_buffer;
 
 void setup() {
-  for (char i = 0; i < BUTTON_COUNT; i++) {
-    pinMode(INPUTS[i], INPUT_PULLUP);
+  for (uint8_t i = 0; i < BUTTON_COUNT; i++) {
+    pinMode(BUTTONS[i], INPUT_PULLUP);
   }
-  //Wire.begin();
-  Serial.begin(1000000);
+  Wire.begin(8);
+  Wire.onRequest(RequestEvent);
+  tx_buffer.axis[2] = 0;
+  tx_buffer.axis[3] = 0;
+  //Serial.begin(1000000);
+  //Serial1.begin(1000000);
 }
 
 void loop() {
-  for (char i = 0; i < BUTTON_COUNT; i++) {
-    tx_buffer[i] = digitalRead(INPUTS[i]);
-  }
 
-  for (char i = 0; i < 2; i++) {
-    analog_tx_buffer[i] = analogRead(AXIS[i]);
-  }
 
-  Serial.write(27);       // ESC command
-  Serial.print("[2J");    // clear screen command
-  Serial.write(27);
-  Serial.print("[H");     // cursor to home command
-  Serial.println("Buttons:");
-  for (char i = 0; i < BUTTON_COUNT; i++) {
-    Serial.print(int(tx_buffer[i]));
-  }
-  Serial.println('\n');
-  Serial.println("Joystick:");
-  for (char i = 0; i < 2; i++) {
-    Serial.print(analog_tx_buffer[i]);
-    Serial.write(' ');
-  }
-  delay(40);
+  // Serial.write(27);    // ESC command
+  // Serial.print("[2J"); // clear screen command
+  // Serial.write(27);
+  // Serial.print("[H"); // cursor to home command
+  // Serial.println("Buttons:");
+  // for (uint8_t i = 0; i < BUTTON_COUNT; i++) {
+  //   Serial.print(int(tx_buffer.buttons[i]));
+  // }
+  // Serial.println('\n');
+  // Serial.println("Joystick:");
+  // for (uint8_t i = 0; i < AXIS_COUNT; i++) {
+  //   Serial.print(tx_buffer.axis[i]);
+  //   Serial.write(' ');
+  // }
+  // Serial.println();
+  // Serial1.write(reinterpret_cast<uint8_t *>(&tx_buffer), sizeof(tx_buffer_t));
+  delay(5);
 }
+
+void RequestEvent() {
+  
+  for (uint8_t i = 0; i < BUTTON_COUNT; i++) {
+    tx_buffer.buttons[i] = !digitalRead(BUTTONS[i]);
+  }
+
+  for (uint8_t i = 0; i < AXIS_COUNT; i++) {
+    int tmp_val = analogRead(AXIS[i]);
+    tmp_val = map(tmp_val, 0, 1023, -512, 512);
+    tx_buffer.axis[i] = tmp_val;
+  }
+  Wire.write(reinterpret_cast<uint8_t *>(&tx_buffer), sizeof(tx_buffer_t));
+}
+
+

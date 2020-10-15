@@ -186,9 +186,9 @@ F 3 "" H 6900 8350 50  0001 C CNN
 $EndComp
 Text Label 4250 3800 2    50   ~ 0
 LCD_CS
-Text Label 1750 4100 0    50   ~ 0
+Text Label 1750 4300 0    50   ~ 0
 LCD_RESET
-Text Label 1750 4000 0    50   ~ 0
+Text Label 1750 4100 0    50   ~ 0
 LCD_DC
 Text Label 4250 4000 2    50   ~ 0
 LCD_MOSI
@@ -197,9 +197,9 @@ LCD_SCK
 Wire Wire Line
 	4250 3800 3800 3800
 Wire Wire Line
-	1750 4100 2200 4100
+	1750 4300 2200 4300
 Wire Wire Line
-	1750 4000 2200 4000
+	1750 4100 2200 4100
 Wire Wire Line
 	4250 4000 3800 4000
 Wire Wire Line
@@ -1205,7 +1205,7 @@ Wire Wire Line
 	12500 4200 13150 4200
 Text Label 13150 4200 2    50   ~ 0
 MCU_MOSI
-Text Label 13350 3700 3    50   ~ 0
+Text Label 13150 4100 2    50   ~ 0
 MCU_SCLK
 $Comp
 L Connector:AVR-ISP-6 J7
@@ -1262,7 +1262,7 @@ Wire Wire Line
 	11900 3450 11900 3700
 Wire Wire Line
 	11800 3450 11800 3700
-Text Label 13150 4100 2    50   ~ 0
+Text Label 4250 4400 2    50   ~ 0
 LCD_LED
 $Comp
 L MCU_Microchip_ATmega:ATmega32U4-AU U1
@@ -1276,9 +1276,9 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7766-8-bit-AVR-ATmega
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	13350 4100 13350 3700
+	12500 4100 13150 4100
 Wire Wire Line
-	12500 4100 13350 4100
+	3800 4400 4250 4400
 Wire Wire Line
 	12500 6500 13150 6500
 Text Label 13150 6500 2    50   ~ 0
@@ -1288,7 +1288,7 @@ L Switch:SW_Push SW15
 U 1 1 5F664F43
 P 14950 7850
 F 0 "SW15" H 14750 7950 50  0000 C CNN
-F 1 "BACKLIGHT_Button" H 14950 8050 50  0000 C CNN
+F 1 "MACRO_Button" H 14950 8050 50  0000 C CNN
 F 2 "Button_Switch_THT:SW_PUSH_6mm" H 14950 8050 50  0001 C CNN
 F 3 "~" H 14950 8050 50  0001 C CNN
 	1    14950 7850
@@ -1297,7 +1297,7 @@ $EndComp
 Wire Wire Line
 	14750 7850 14150 7850
 Text Label 14150 7850 0    50   ~ 0
-BACKLIGHT_BTN
+MACRO_BTN
 $Comp
 L power:GND #PWR0136
 U 1 1 5F664F4B
@@ -1575,10 +1575,9 @@ NoConn ~ 3800 3400
 NoConn ~ 3800 3500
 NoConn ~ 3800 3700
 NoConn ~ 3800 4300
-NoConn ~ 3800 4400
 NoConn ~ 2200 3000
 NoConn ~ 2200 3100
-NoConn ~ 2200 4300
+NoConn ~ 2200 4000
 NoConn ~ 2200 4200
 NoConn ~ 2200 3800
 NoConn ~ 2200 3900
