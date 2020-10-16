@@ -71,7 +71,7 @@
       (place R4 189000 -95000 back 0 (PN 10k))
       (place R3 184500 -106012 back 90 (PN 10k))
       (place R2 184500 -98012.5 back 90 (PN 10k))
-      (place C6 62230 -105410 back 0 (PN C_Small))
+      (place C6 62230 -105410 back 0 (PN 1uF))
       (place R1 54000 -82987.5 back 270 (PN 10k))
       (place C5 55880 -63917.5 back 90 (PN 1uF))
       (place C4 66132.5 -83220 back 180 (PN 1uF))
@@ -84,7 +84,7 @@
       (place Q1 188000 -98500 back 270 (PN BSS138))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical
-      (place J7 50500 -100000 back 90 (PN "AVR-ISP-6"))
+      (place J7 75400 -108200 back 180 (PN "AVR-ISP-6"))
     )
     (component MountingHole:MountingHole_3mm_Pad
       (place H2 51500 -56500 front 180 (PN Top_Left_Mount))
@@ -104,10 +104,10 @@
       (place J1 172000 -118000 front 180 (PN Raspberry_Pi_2_3))
     )
     (component Button_Switch_THT:SW_PUSH_6mm
-      (place SW15 58000 -112000 front 0 (PN BACKLIGHT_Button))
+      (place SW15 58000 -112000 front 0 (PN MACRO_Button))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical
-      (place U2 65405 -108585 back 270 (PN "MAX98357A-Mono-3W-I2S"))
+      (place U2 50600 -108800 back 90 (PN "MAX98357A-Mono-3W-I2S"))
     )
     (component Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Horizontal
       (place J6 168250 -107750 back 270 (PN "Link Cable Connector"))
@@ -1037,9 +1037,6 @@
     (net "Net-(J1-Pad11)"
       (pins J1-11)
     )
-    (net "Net-(J1-Pad13)"
-      (pins J1-13)
-    )
     (net "Net-(J1-Pad15)"
       (pins J1-15)
     )
@@ -1092,10 +1089,10 @@
         SW1-2@1)
     )
     (net /LCD_LED
-      (pins J2-8 J7-3 U1-9)
+      (pins J2-8 U1-30)
     )
     (net /LCD_DC
-      (pins J2-5 J1-18)
+      (pins J2-5 J1-22)
     )
     (net /LCD_MOSI
       (pins J2-6 J1-19)
@@ -1104,7 +1101,7 @@
       (pins J2-9 J1-21)
     )
     (net /LCD_RESET
-      (pins J2-4 J1-22)
+      (pins J2-4 J1-13)
     )
     (net /LCD_SCK
       (pins J2-7 J1-23)
@@ -1191,7 +1188,7 @@
       (pins U1-28 SW11-1 SW11-1@1)
     )
     (net /GAMEPAD_SELECT
-      (pins U1-30 SW12-1 SW12-1@1)
+      (pins J7-3 U1-9 SW12-1 SW12-1@1)
     )
     (net /GAMEPAD_HOME
       (pins SW13-1 SW13-1@1 U1-29)
@@ -1226,9 +1223,6 @@
     (net /MCU_MISO
       (pins J7-1 U1-11)
     )
-    (net /BACKLIGHT_BTN
-      (pins SW15-1 SW15-1@1 U1-40)
-    )
     (net "Net-(J8-Pad4)"
       (pins J8-4)
     )
@@ -1250,19 +1244,26 @@
     (net /5v_I2C_SDA
       (pins R5-2 Q2-3 U1-19)
     )
+    (net "Net-(J1-Pad18)"
+      (pins J1-18)
+    )
+    (net /MACRO_BTN
+      (pins SW15-1 SW15-1@1 U1-40)
+    )
     (class kicad_default "" +3V3 +5V /3v_I2C_SCL /3v_I2C_SDA /5v_I2C_SCL /5v_I2C_SDA
       /BACKLIGHT_BTN /D_PAD_DOWN /D_PAD_LEFT /D_PAD_RIGHT /D_PAD_UP /GAMEPAD_A
       /GAMEPAD_B /GAMEPAD_HOME /GAMEPAD_L /GAMEPAD_R /GAMEPAD_SELECT /GAMEPAD_START
       /GAMEPAD_X /GAMEPAD_Y /I2S_BCLK /I2S_DIN /I2S_LRCLK /LCD_CS /LCD_DC
       /LCD_LED /LCD_MISO /LCD_MOSI /LCD_RESET /LCD_SCK /L_JOYSTICK_BTN /L_JOYSTICK_X
-      /L_JOYSTICK_Y /MCU_MISO /MCU_MOSI /MCU_RST /R_JOYSTICK_BTN /R_JOYSTICK_X
-      /R_JOYSTICK_Y /UART_RX /UART_TX /USB_D+ "/USB_D-" GND "Net-(C1-Pad1)"
-      "Net-(C2-Pad1)" "Net-(C3-Pad1)" "Net-(C4-Pad1)" "Net-(J1-Pad11)" "Net-(J1-Pad13)"
-      "Net-(J1-Pad15)" "Net-(J1-Pad16)" "Net-(J1-Pad26)" "Net-(J1-Pad27)"
-      "Net-(J1-Pad28)" "Net-(J1-Pad29)" "Net-(J1-Pad31)" "Net-(J1-Pad32)"
-      "Net-(J1-Pad33)" "Net-(J1-Pad36)" "Net-(J1-Pad37)" "Net-(J1-Pad38)"
-      "Net-(J1-Pad7)" "Net-(J2-Pad10)" "Net-(J2-Pad11)" "Net-(J2-Pad12)" "Net-(J2-Pad13)"
-      "Net-(J2-Pad14)" "Net-(J8-Pad4)" "Net-(SW14-Pad2)" "Net-(U2-Pad4)"
+      /L_JOYSTICK_Y /MACRO_BTN /MCU_MISO /MCU_MOSI /MCU_RST /MCU_SCLK /R_JOYSTICK_BTN
+      /R_JOYSTICK_X /R_JOYSTICK_Y /UART_RX /UART_TX /USB_D+ "/USB_D-" GND
+      "Net-(C1-Pad1)" "Net-(C2-Pad1)" "Net-(C3-Pad1)" "Net-(C4-Pad1)" "Net-(J1-Pad11)"
+      "Net-(J1-Pad15)" "Net-(J1-Pad16)" "Net-(J1-Pad18)" "Net-(J1-Pad26)"
+      "Net-(J1-Pad27)" "Net-(J1-Pad28)" "Net-(J1-Pad29)" "Net-(J1-Pad31)"
+      "Net-(J1-Pad32)" "Net-(J1-Pad33)" "Net-(J1-Pad36)" "Net-(J1-Pad37)"
+      "Net-(J1-Pad38)" "Net-(J1-Pad7)" "Net-(J2-Pad10)" "Net-(J2-Pad11)" "Net-(J2-Pad12)"
+      "Net-(J2-Pad13)" "Net-(J2-Pad14)" "Net-(J8-Pad4)" "Net-(SW14-Pad2)"
+      "Net-(U2-Pad4)"
       (circuit
         (use_via Via[0-1]_800:400_um)
       )

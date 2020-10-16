@@ -991,14 +991,12 @@ Text Label 13100 5000 2    50   ~ 0
 GAMEPAD_R
 Text Label 13150 4400 2    50   ~ 0
 GAMEPAD_START
-Text Label 13150 4600 2    50   ~ 0
+Text Label 12500 4100 0    50   ~ 0
 GAMEPAD_SELECT
 Text Label 13150 4500 2    50   ~ 0
 GAMEPAD_HOME
 Wire Wire Line
 	12500 4400 13150 4400
-Wire Wire Line
-	12500 4600 13150 4600
 Wire Wire Line
 	12500 4500 13150 4500
 Wire Wire Line
@@ -1205,7 +1203,7 @@ Wire Wire Line
 	12500 4200 13150 4200
 Text Label 13150 4200 2    50   ~ 0
 MCU_MOSI
-Text Label 13150 4100 2    50   ~ 0
+Text Label 13700 4100 2    50   ~ 0
 MCU_SCLK
 $Comp
 L Connector:AVR-ISP-6 J7
@@ -1262,8 +1260,6 @@ Wire Wire Line
 	11900 3450 11900 3700
 Wire Wire Line
 	11800 3450 11800 3700
-Text Label 4250 4400 2    50   ~ 0
-LCD_LED
 $Comp
 L MCU_Microchip_ATmega:ATmega32U4-AU U1
 U 1 1 5F59578B
@@ -1275,10 +1271,6 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7766-8-bit-AVR-ATmega
 	1    11900 5500
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	12500 4100 13150 4100
-Wire Wire Line
-	3800 4400 4250 4400
 Wire Wire Line
 	12500 6500 13100 6500
 Text Label 13100 6500 2    50   ~ 0
@@ -1593,4 +1585,11 @@ F 3 "" H 2700 7800 50  0001 C CNN
 	1    2700 7950
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	12500 4600 13100 4600
+Text Label 13100 4600 2    50   ~ 0
+LCD_LED
+NoConn ~ 3800 4400
+Wire Wire Line
+	12500 4100 13700 4100
 $EndSCHEMATC
