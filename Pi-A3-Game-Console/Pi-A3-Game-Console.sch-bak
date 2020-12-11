@@ -1586,8 +1586,8 @@ F 3 "" H 2700 7800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	12500 4600 13150 4600
-Text Label 13150 4600 2    50   ~ 0
+	12500 4600 13100 4600
+Text Label 13100 4600 2    50   ~ 0
 LCD_LED
 NoConn ~ 3800 4400
 Wire Wire Line
